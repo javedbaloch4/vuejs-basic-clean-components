@@ -2,10 +2,19 @@ import AssignmentList from "./AssignmentList.js";
 import AddAssignment from "./AddAssignment.js";
 export default {
   template: `
-    <assignment-list :assignments="filter.inProgress" title="Progress"></assignment-list>
-    <assignment-list :assignments="filter.completed" title="Completed"></assignment-list>
+    <section class="flex gap-8">
+      <assignment-list :assignments="filter.inProgress" title="Progress">
+        <add-assignment @addItem="add"></add-assignment>
+      </assignment-list>
 
-    <add-assignment @addItem="add"></add-assignment>
+        <assignment-list 
+          v-if="showCompleted"
+          :assignments="filter.completed" 
+          title="Completed" 
+          can-toggle
+          @toggle="showCompleted = !showCompleted"
+        ></assignment-list>
+    </section>
    `,
 
   components: {
@@ -15,13 +24,17 @@ export default {
 
   data() {
     return {
-      assignments: [
-        { id: 1, name: "This is my todo", complete: false, tag: "science" },
-        { id: 2, name: "This is just perfect", complete: true, tag: "reading" },
-        { id: 3, name: "I want to pick it up", complete: true, tag: "reading" },
-        { id: 4, name: "I want to pick it up", complete: true, tag: "math" },
-      ],
+      assignments: [],
+      showCompleted: true,
     };
+  },
+
+  created() {
+    fetch("http://localhost:3001/assignments")
+      .then((response) => response.json())
+      .then((assignments) => {
+        this.assignments = assignments;
+      });
   },
 
   computed: {

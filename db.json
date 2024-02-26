@@ -1,0 +1,34 @@
+{
+  "assignments": [
+    {
+      "id": 1,
+      "name": "This is my todo for science",
+      "complete": false,
+      "tag": "science"
+    },
+    {
+      "id": 2,
+      "name": "This is just perfect",
+      "complete": true,
+      "tag": "reading"
+    },
+    {
+      "id": 3,
+      "name": "I want to pick it up",
+      "complete": true,
+      "tag": "reading"
+    },
+    {
+      "id": 4,
+      "name": "I want to pick it from",
+      "complete": true,
+      "tag": "math"
+    },
+    {
+      "id": 5,
+      "name": "Finish the json server",
+      "complete": true,
+      "tag": "programming"
+    }
+  ]
+}
