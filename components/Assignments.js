@@ -39,6 +39,7 @@ export default {
         id: this.assignments[this.assignments.length - 1].id + 1,
         name: name,
         complete: false,
+        tag: "reading",
       });
     },
   },
