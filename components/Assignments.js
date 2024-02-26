@@ -6,7 +6,6 @@ export default {
     <assignment-list :assignments="filter.completed" title="Completed"></assignment-list>
 
     <add-assignment @addItem="add"></add-assignment>
-
    `,
 
   components: {
@@ -17,9 +16,10 @@ export default {
   data() {
     return {
       assignments: [
-        { id: 1, name: "This is my todo", complete: false },
-        { id: 2, name: "This is just perfect", complete: true },
-        { id: 3, name: "I want to pick it up", complete: true },
+        { id: 1, name: "This is my todo", complete: false, tag: "science" },
+        { id: 2, name: "This is just perfect", complete: true, tag: "reading" },
+        { id: 3, name: "I want to pick it up", complete: true, tag: "reading" },
+        { id: 4, name: "I want to pick it up", complete: true, tag: "math" },
       ],
     };
   },
